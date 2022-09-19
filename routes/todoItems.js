@@ -16,5 +16,26 @@ router.post('/api/item', async (req, res) => {
   }
 });
 
+//let's create second route -- get data
+router.get('/api/items', async (req, res) => {
+  try {
+    const allTodoItems = await todoItemsModel.find({});
+    res.status(200).json(allTodoItems);
+  } catch (err) {
+    res.json(err);
+  }
+});
+
+//Let's update item
+router.put('/api/item/:id', async (req, res) => {
+  try{
+    //find the item by it's id and update it
+    const updateItem = todoItemsModel.findByIdAndUpdate(req.params.id, {$set: req.body})
+    res.status(200).json('Item Updated')
+  }catch(err){
+    res.json(err)
+  }
+});
+
 //export router
 module.exports = router;
