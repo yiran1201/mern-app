@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const dovtenv = require('dotenv').config();
+const dotenv = require('dotenv').config();
+const cors = require('cors')
 
 const app = express();
 //Use express.json() to get data into json format
@@ -8,6 +9,9 @@ const app = express();
 app.use(express.json());
 //Port
 const PORT = process.env.PORT || 5500;
+
+//use cors
+app.use(cors())
 // 链接数据库放最上面，因为之后的route会用到。
 mongoose
   .connect(process.env.DB_CONNECT)
