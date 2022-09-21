@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //create Schema
 const TodoItemSchema = new mongoose.Schema({
-  item: {
+  text: {
     type: String,
     required: true,
   },

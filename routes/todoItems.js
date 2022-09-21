@@ -6,7 +6,7 @@ const todoItemsModel = require('../models/todoItems');
 router.post('/api/item', async (req, res) => {
   try {
     const newItem = new todoItemsModel({
-      item: req.body.item,
+      text: req.body.text,
     });
     //save this item in database
     const saveItem = await newItem.save();
@@ -43,7 +43,7 @@ router.put('/api/item/:id', async (req, res) => {
 router.delete('/api/item/:id', async (req, res) => {
   try {
     //find the item by its id and delete
-    const deleteItem = await todoItemsModel.findByIdAndDelete(req.params.id);
+    await todoItemsModel.findByIdAndDelete(req.params.id);
     res.status(200).json('Item Deleted');
   } catch (err) {
     res.json(err);
