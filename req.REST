@@ -2,7 +2,7 @@ POST http://localhost:5500/api/item
 Content-Type:application/json
 
 {
- "item":"This is the second todo item"
+ "text":"This is the second todo item"
 }
 
 ###
@@ -15,7 +15,7 @@ PUT http://localhost:5500/api/item/63277461339630e67e957743
 Content-Type:application/json
 
 {
- "item":"Test with put!!"
+ "text":"Test with put!!"
 }
 
 ###
